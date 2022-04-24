@@ -1,15 +1,18 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity >=0.8.0;
 
-import {DSTest} from "ds-test/test.sol";
 import {Vm} from "forge-std/Vm.sol";
 
 //common utilities for forge tests
-contract Utilities is DSTest {
-    Vm internal immutable vm = Vm(HEVM_ADDRESS);
-    bytes32 internal nextUser = keccak256(abi.encodePacked("user address"));
+contract users {
+    address internal constant HEVM_ADDRESS =
+        address(bytes20(uint160(uint256(keccak256('hevm cheat code')))));
 
-    function getNextUserAddress() external returns (address payable) {
+    Vm internal immutable vm = Vm(HEVM_ADDRESS);
+
+    bytes32 internal nextUser = keccak256(abi.encodePacked("users"));
+
+    function next() public returns (address payable) {
         //bytes32 to address conversion
         address payable user = payable(address(uint160(uint256(nextUser))));
         nextUser = keccak256(abi.encodePacked(nextUser));
@@ -17,22 +20,16 @@ contract Utilities is DSTest {
     }
 
     //create users with 100 ether balance
-    function createUsers(uint256 userNum)
-        external
+    function create(uint256 userNum)
+        public
         returns (address payable[] memory)
     {
         address payable[] memory users = new address payable[](userNum);
         for (uint256 i = 0; i < userNum; i++) {
-            address payable user = this.getNextUserAddress();
+            address payable user = next();
             vm.deal(user, 100 ether);
             users[i] = user;
         }
         return users;
-    }
-
-    //move block.number forward by a given number of blocks
-    function mineBlocks(uint256 numBlocks) external {
-        uint256 targetBlock = block.number + numBlocks;
-        vm.roll(targetBlock);
     }
 }
