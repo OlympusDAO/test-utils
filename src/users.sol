@@ -6,7 +6,7 @@ import {Vm} from "forge-std/Vm.sol";
 //common utilities for forge tests
 contract users {
     address internal constant HEVM_ADDRESS =
-        address(bytes20(uint160(uint256(keccak256('hevm cheat code')))));
+        address(bytes20(uint160(uint256(keccak256("hevm cheat code")))));
 
     Vm internal immutable vm = Vm(HEVM_ADDRESS);
 
@@ -20,10 +20,7 @@ contract users {
     }
 
     //create users with 100 ether balance
-    function create(uint256 userNum)
-        public
-        returns (address payable[] memory)
-    {
+    function create(uint256 userNum) public returns (address payable[] memory) {
         address payable[] memory users = new address payable[](userNum);
         for (uint256 i = 0; i < userNum; i++) {
             address payable user = next();

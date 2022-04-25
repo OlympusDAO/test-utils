@@ -1,31 +1,45 @@
 pragma solidity >=0.8.0;
 
 /// DEPS
-import {Vm} from "forge-std/Vm.sol" ;
-import {IERC20} from "src/interfaces.sol";
+import {Vm} from "forge-std/Vm.sol";
+import "forge-std/console2.sol";
+
+/// LOCAL
+import "solmate/tokens/ERC20.sol";
+
+contract mtt is ERC20 {
+    constructor() ERC20("mock", "mock", 18) {}
+}
 
 // mock token
 // understand that each function mock means
 // that on call of that function it will be successfully executed
-// mock.token gives original token
+// mock.token() gives original token
 contract token {
     address internal constant HEVM_ADDRESS =
-        address(bytes20(uint160(uint256(keccak256('hevm cheat code')))));
-    
+        address(bytes20(uint160(uint256(keccak256("hevm cheat code")))));
+
     Vm internal constant vm = Vm(HEVM_ADDRESS);
 
-    address internal immutable _token;
+    address internal _token;
 
-    IERC20 public immutable token;
+    ERC20 public token;
 
-    constructor(
-        address token_
-    ) {
-        _token = token_;
-        token = IERC20(token_);
+    constructor(address token_) {
+        if (block.chainid == 99) {
+            token = ERC20(address(new mtt()));
+            _token = address(token);
+        } else {
+            _token = token_;
+            token = ERC20(token_);
+        }
     }
 
-    function allowance(address owner, address spender, uint256 amount) public {
+    function allowance(
+        address owner,
+        address spender,
+        uint256 amount
+    ) public {
         vm.mockCall(
             _token,
             abi.encodeWithSelector(token.allowance.selector, owner, spender),
@@ -49,10 +63,19 @@ contract token {
         );
     }
 
-    function transferFrom(address from, uint256 to, uint256 amount) public {
+    function transferFrom(
+        address from,
+        address to,
+        uint256 amount
+    ) public {
         vm.mockCall(
             _token,
-            abi.encodeWithSelector(token.transferFrom.selector, from, to, amount),
+            abi.encodeWithSelector(
+                token.transferFrom.selector,
+                from,
+                to,
+                amount
+            ),
             abi.encode(true)
         );
     }

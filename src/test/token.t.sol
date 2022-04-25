@@ -2,6 +2,8 @@ pragma solidity >=0.8.0;
 
 /// DEPS
 import "forge-std/Test.sol";
+import "forge-std/console2.sol";
+import "solmate/tokens/ERC20.sol";
 
 /// LOCAL
 import "src/coins.sol";
@@ -13,7 +15,7 @@ contract tokenTest is Test {
     users ufac;
 
     function setUp() public {
-        mock = token(coins.ohm);
+        mock = new token(coins.ohm);
         ufac = new users();
     }
 
@@ -21,25 +23,26 @@ contract tokenTest is Test {
         address user1 = ufac.next();
         address user2 = ufac.next();
 
+        console2.log(address(mock.token()).code.length);
+
         mock.allowance(user1, user2, 1e21);
 
-        assertEq(mock.token.allowance(user1, user2), 1e21);
+        assertEq(mock.token().allowance(user1, user2), 1e21);
 
         mock.approve(user2, 1e21);
 
-        assertTrue(mock.token.approve(user2, 1e21));
+        assertTrue(mock.token().approve(user2, 1e21));
 
         mock.transfer(user2, 1e21);
 
-        assertTrue(mock.token.transfer(user2, 1e21));
+        assertTrue(mock.token().transfer(user2, 1e21));
 
         mock.transferFrom(user1, user2, 1e21);
 
-        assertTrue(mock.token.transferFrom(user1, user2, 1e21));
+        assertTrue(mock.token().transferFrom(user1, user2, 1e21));
 
         mock.balanceOf(user1, 1e21);
 
-        assertEq(mock.balanceof(user1, 1e21), 1e21);
+        assertEq(mock.token().balanceOf(user1), 1e21);
     }
-
 }

@@ -1,12 +1,12 @@
 #!/bin/bash
 
-eval "yarn"
+yarn
 # yes doing this because preferable to submodule update
-eval "forge install"
+forge install
 
 # same here
 for lib in lib/*; do
-	eval "forge update $lib"
+	forge update $lib
 done
 
-eval "forge build"
+forge build
