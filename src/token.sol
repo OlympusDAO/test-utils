@@ -2,7 +2,6 @@ pragma solidity >=0.8.0;
 
 /// DEPS
 import {Vm} from "forge-std/Vm.sol";
-import "forge-std/console2.sol";
 
 /// LOCAL
 import "solmate/tokens/ERC20.sol";

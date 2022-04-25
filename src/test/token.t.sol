@@ -2,7 +2,6 @@ pragma solidity >=0.8.0;
 
 /// DEPS
 import "forge-std/Test.sol";
-import "forge-std/console2.sol";
 import "solmate/tokens/ERC20.sol";
 
 /// LOCAL
@@ -22,8 +21,6 @@ contract tokenTest is Test {
     function testShort() public {
         address user1 = ufac.next();
         address user2 = ufac.next();
-
-        console2.log(address(mock.token()).code.length);
 
         mock.allowance(user1, user2, 1e21);
 
