@@ -160,6 +160,31 @@ library mocking {
         );
     } 
 
+    // address,bool
+    function mock(function (address) external returns(bool) f, address addr1, bool returned1) internal {
+        vm.mockCall(
+            f.address,
+            abi.encodeWithSelector(f.selector, addr1),
+            abi.encode(returned1)
+        );
+    }
+
+    function mockp(function (address) external payable returns(bool) f, address addr1, bool returned1) internal {
+        vm.mockCall(
+            f.address,
+            abi.encodeWithSelector(f.selector, addr1),
+            abi.encode(returned1)
+        );
+    }
+
+    function mockv(function (address) external view returns(bool) f, address addr1, bool returned1) internal {
+        vm.mockCall(
+            f.address,
+            abi.encodeWithSelector(f.selector, addr1),
+            abi.encode(returned1)
+        );
+    }
+
     // address,uint256
     function mock(function (address) external returns(uint256) f, address addr1, uint256 returned1) internal {
         vm.mockCall(
