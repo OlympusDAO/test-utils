@@ -20,7 +20,7 @@ library mocking {
         );
     }
 
-    function mock(function () external payable returns(address) f, address returned1) internal {
+    function mockp(function () external payable returns(address) f, address returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -28,7 +28,7 @@ library mocking {
         );
     }
 
-    function mock(function () external view returns(address) f, address returned1) internal {
+    function mockv(function () external view returns(address) f, address returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -45,7 +45,7 @@ library mocking {
         );
     }
 
-    function mock(function () external payable returns(bool) f, bool returned1) internal {
+    function mockp(function () external payable returns(bool) f, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -53,7 +53,7 @@ library mocking {
         );
     }
 
-    function mock(function () external view returns(bool) f, bool returned1) internal {
+    function mockv(function () external view returns(bool) f, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -70,7 +70,7 @@ library mocking {
         );
     }
 
-    function mock(function () external payable returns(bytes32) f, bytes32 returned1) internal {
+    function mockp(function () external payable returns(bytes32) f, bytes32 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -78,7 +78,7 @@ library mocking {
         );
     }
 
-    function mock(function () external view returns(bytes32) f, bytes32 returned1) internal {
+    function mockv(function () external view returns(bytes32) f, bytes32 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -95,7 +95,7 @@ library mocking {
         );
     }
 
-    function mock(function () external payable returns(string memory) f, string memory returned1) internal {
+    function mockp(function () external payable returns(string memory) f, string memory returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -103,7 +103,7 @@ library mocking {
         );
     }
 
-    function mock(function () external view returns(string memory) f, string memory returned1) internal {
+    function mockv(function () external view returns(string memory) f, string memory returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -120,7 +120,7 @@ library mocking {
         );
     }
 
-    function mock(function () external payable returns(uint256) f, uint256 returned1) internal {
+    function mockp(function () external payable returns(uint256) f, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -128,7 +128,7 @@ library mocking {
         );
     }
 
-    function mock(function () external view returns(uint256) f, uint256 returned1) internal {
+    function mockv(function () external view returns(uint256) f, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -145,7 +145,7 @@ library mocking {
         );
     }
 
-    function mock(function () external payable returns(uint8) f, uint8 returned1) internal {
+    function mockp(function () external payable returns(uint8) f, uint8 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -153,7 +153,7 @@ library mocking {
         );
     }
 
-    function mock(function () external view returns(uint8) f, uint8 returned1) internal {
+    function mockv(function () external view returns(uint8) f, uint8 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -170,7 +170,7 @@ library mocking {
         );
     }
 
-    function mock(function (address) external payable returns(uint256) f, address addr1, uint256 returned1) internal {
+    function mockp(function (address) external payable returns(uint256) f, address addr1, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1),
@@ -178,7 +178,7 @@ library mocking {
         );
     }
 
-    function mock(function (address) external view returns(uint256) f, address addr1, uint256 returned1) internal {
+    function mockv(function (address) external view returns(uint256) f, address addr1, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1),
@@ -195,7 +195,7 @@ library mocking {
         );
     }
 
-    function mock(function (address,address) external payable returns(uint256) f, address addr1, address addr2, uint256 returned1) internal {
+    function mockp(function (address,address) external payable returns(uint256) f, address addr1, address addr2, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, addr2),
@@ -203,7 +203,7 @@ library mocking {
         );
     }
 
-    function mock(function (address,address) external view returns(uint256) f, address addr1, address addr2, uint256 returned1) internal {
+    function mockv(function (address,address) external view returns(uint256) f, address addr1, address addr2, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, addr2),
@@ -220,7 +220,7 @@ library mocking {
         );
     }
 
-    function mock(function (address,uint256) external payable returns(bool) f, address addr1, uint256 num1, bool returned1) internal {
+    function mockp(function (address,uint256) external payable returns(bool) f, address addr1, uint256 num1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1),
@@ -228,16 +228,41 @@ library mocking {
         );
     }
 
-    function mock(function (address,uint256) external view returns(bool) f, address addr1, uint256 num1, bool returned1) internal {
+    function mockv(function (address,uint256) external view returns(bool) f, address addr1, uint256 num1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1),
+            abi.encode(returned1)
+        );
+    }
+
+    // address,address,uint256,bool
+    function mock(function (address,address,uint256) external returns(bool) f, address addr1, address addr2, uint256 num1, bool returned1) internal {
+        vm.mockCall(
+            f.address,
+            abi.encodeWithSelector(f.selector, addr1, addr2, num1),
+            abi.encode(returned1)
+        );
+    }
+
+    function mockp(function (address,address,uint256) external payable returns(bool) f, address addr1, address addr2, uint256 num1, bool returned1) internal {
+        vm.mockCall(
+            f.address,
+            abi.encodeWithSelector(f.selector, addr1, addr2, num1),
+            abi.encode(returned1)
+        );
+    }
+
+    function mockv(function (address,address,uint256) external view returns(bool) f, address addr1, address addr2, uint256 num1, bool returned1) internal {
+        vm.mockCall(
+            f.address,
+            abi.encodeWithSelector(f.selector, addr1, addr2, num1),
             abi.encode(returned1)
         );
     }
     
     // address,uint256,uint256,bool
-    function mock(function (address,uint256,uint256) external returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
+    function mock(function (address,uint256,uint256) external returns(bool) f, address addr1, address num1, uint256 num2, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1, num2),
@@ -245,7 +270,7 @@ library mocking {
         );
     }
 
-    function mock(function (address,uint256,uint256) external payable returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
+    function mockp(function (address,uint256,uint256) external payable returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1, num2),
@@ -253,7 +278,7 @@ library mocking {
         );
     }
 
-    function mock(function (address,uint256,uint256) external view returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
+    function mockv(function (address,uint256,uint256) external view returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1, num2),
