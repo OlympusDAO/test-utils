@@ -20,10 +20,10 @@ contract users {
     }
 
     //create users with 100 ether balance
-    function create(uint256 userNum) public returns (address payable[] memory) {
-        address payable[] memory users = new address payable[](userNum);
+    function create(uint256 userNum) public returns (address [] memory) {
+        address [] memory users = new address [](userNum);
         for (uint256 i = 0; i < userNum; i++) {
-            address payable user = next();
+            address  user = next();
             vm.deal(user, 100 ether);
             users[i] = user;
         }
