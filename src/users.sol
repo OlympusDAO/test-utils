@@ -21,12 +21,12 @@ contract users {
 
     //create users with 100 ether balance
     function create(uint256 userNum) public returns (address[] memory) {
-        address[] memory users = new address[](userNum);
+        address[] memory usrs = new address[](userNum);
         for (uint256 i = 0; i < userNum; i++) {
             address user = next();
             vm.deal(user, 100 ether);
-            users[i] = user;
+            usrs[i] = user;
         }
-        return users;
+        return usrs;
     }
 }
