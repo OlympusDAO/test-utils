@@ -5,7 +5,7 @@ import "forge-std/Test.sol";
 import "solmate/tokens/ERC20.sol";
 
 /// LOCAL
-import "src/mocking.sol";
+import "src/larping.sol";
 import "src/coins.sol";
 import "src/users.sol";
 
@@ -23,8 +23,8 @@ contract PERC20 is ERC20 {
     {}
 }
 
-contract mockingTest is Test {
-    using mocking for *;
+contract larpingTest is Test {
+    using larping for *;
     PERC20 ohm;
     users usr;
 
@@ -33,20 +33,20 @@ contract mockingTest is Test {
         usr = new users();
     }
 
-    function testSimpleMocking() public {
+    function testSimpleLarping() public {
         address rec = usr.next();
         address sen = usr.next();
 
-        ohm.transfer.mock(rec, 1e21, true);
-        ohm.transferFrom.mock(sen, rec, 1e21, true);
-        ohm.balanceOf.mockv(rec, 1e21);
-        ohm.name.mockv("dai");
-        ohm.symbol.mockv("DAI");
-        ohm.totalSupply.mockv(1e3);
-        ohm.allowance.mockv(rec, sen, 1e21);
-        ohm.decimals.mockv(20);
-        ohm.approve.mock(sen, 1e21, true);
-        ohm.pays.mockp(rec, 1e21, true);
+        ohm.transfer.larp(rec, 1e21, true);
+        ohm.transferFrom.larp(sen, rec, 1e21, true);
+        ohm.balanceOf.larpv(rec, 1e21);
+        ohm.name.larpv("dai");
+        ohm.symbol.larpv("DAI");
+        ohm.totalSupply.larpv(1e3);
+        ohm.allowance.larpv(rec, sen, 1e21);
+        ohm.decimals.larpv(20);
+        ohm.approve.larp(sen, 1e21, true);
+        ohm.pays.larpp(rec, 1e21, true);
 
         assertTrue(ohm.transfer(rec, 1e21));
         assertTrue(ohm.transferFrom(sen, rec, 1e21));

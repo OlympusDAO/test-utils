@@ -3,15 +3,15 @@ pragma solidity >=0.8.0;
 /// DEPS
 import {Vm} from "forge-std/Vm.sol";
 
-// mocking library
-library mocking {
+// larping library
+library larping {
     address private constant HEVM_ADDRESS =
         address(bytes20(uint160(uint256(keccak256("hevm cheat code")))));
 
     Vm private constant vm = Vm(HEVM_ADDRESS);
 
     // ,address 
-    function mock(function () external returns(address) f, address returned1) internal {
+    function larp(function () external returns(address) f, address returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -19,7 +19,7 @@ library mocking {
         );
     }
 
-    function mockp(function () external payable returns(address) f, address returned1) internal {
+    function larpp(function () external payable returns(address) f, address returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -27,7 +27,7 @@ library mocking {
         );
     }
 
-    function mockv(function () external view returns(address) f, address returned1) internal {
+    function larpv(function () external view returns(address) f, address returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -36,7 +36,7 @@ library mocking {
     }
 
     // ,bool 
-    function mock(function () external returns(bool) f, bool returned1) internal {
+    function larp(function () external returns(bool) f, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -44,7 +44,7 @@ library mocking {
         );
     }
 
-    function mockp(function () external payable returns(bool) f, bool returned1) internal {
+    function larpp(function () external payable returns(bool) f, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -52,7 +52,7 @@ library mocking {
         );
     }
 
-    function mockv(function () external view returns(bool) f, bool returned1) internal {
+    function larpv(function () external view returns(bool) f, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -61,7 +61,7 @@ library mocking {
     }
 
     // ,bytes32
-    function mock(function () external returns(bytes32) f, bytes32 returned1) internal {
+    function larp(function () external returns(bytes32) f, bytes32 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -69,7 +69,7 @@ library mocking {
         );
     }
 
-    function mockp(function () external payable returns(bytes32) f, bytes32 returned1) internal {
+    function larpp(function () external payable returns(bytes32) f, bytes32 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -77,7 +77,7 @@ library mocking {
         );
     }
 
-    function mockv(function () external view returns(bytes32) f, bytes32 returned1) internal {
+    function larpv(function () external view returns(bytes32) f, bytes32 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -86,7 +86,7 @@ library mocking {
     }
 
     // ,string
-    function mock(function () external returns(string memory) f, string memory returned1) internal {
+    function larp(function () external returns(string memory) f, string memory returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -94,7 +94,7 @@ library mocking {
         );
     }
 
-    function mockp(function () external payable returns(string memory) f, string memory returned1) internal {
+    function larpp(function () external payable returns(string memory) f, string memory returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -102,7 +102,7 @@ library mocking {
         );
     }
 
-    function mockv(function () external view returns(string memory) f, string memory returned1) internal {
+    function larpv(function () external view returns(string memory) f, string memory returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -111,7 +111,7 @@ library mocking {
     }
 
     // ,uint256
-    function mock(function () external returns(uint256) f, uint256 returned1) internal {
+    function larp(function () external returns(uint256) f, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -119,7 +119,7 @@ library mocking {
         );
     }
 
-    function mockp(function () external payable returns(uint256) f, uint256 returned1) internal {
+    function larpp(function () external payable returns(uint256) f, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -127,7 +127,7 @@ library mocking {
         );
     }
 
-    function mockv(function () external view returns(uint256) f, uint256 returned1) internal {
+    function larpv(function () external view returns(uint256) f, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -136,7 +136,7 @@ library mocking {
     }
 
      // ,uint8
-    function mock(function () external returns(uint8) f, uint8 returned1) internal {
+    function larp(function () external returns(uint8) f, uint8 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -144,7 +144,7 @@ library mocking {
         );
     }
 
-    function mockp(function () external payable returns(uint8) f, uint8 returned1) internal {
+    function larpp(function () external payable returns(uint8) f, uint8 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -152,7 +152,7 @@ library mocking {
         );
     }
 
-    function mockv(function () external view returns(uint8) f, uint8 returned1) internal {
+    function larpv(function () external view returns(uint8) f, uint8 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector),
@@ -161,7 +161,7 @@ library mocking {
     } 
 
     // address,bool
-    function mock(function (address) external returns(bool) f, address addr1, bool returned1) internal {
+    function larp(function (address) external returns(bool) f, address addr1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1),
@@ -169,7 +169,7 @@ library mocking {
         );
     }
 
-    function mockp(function (address) external payable returns(bool) f, address addr1, bool returned1) internal {
+    function larpp(function (address) external payable returns(bool) f, address addr1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1),
@@ -177,7 +177,7 @@ library mocking {
         );
     }
 
-    function mockv(function (address) external view returns(bool) f, address addr1, bool returned1) internal {
+    function larpv(function (address) external view returns(bool) f, address addr1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1),
@@ -186,7 +186,7 @@ library mocking {
     }
 
     // address,uint256
-    function mock(function (address) external returns(uint256) f, address addr1, uint256 returned1) internal {
+    function larp(function (address) external returns(uint256) f, address addr1, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1),
@@ -194,7 +194,7 @@ library mocking {
         );
     }
 
-    function mockp(function (address) external payable returns(uint256) f, address addr1, uint256 returned1) internal {
+    function larpp(function (address) external payable returns(uint256) f, address addr1, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1),
@@ -202,7 +202,7 @@ library mocking {
         );
     }
 
-    function mockv(function (address) external view returns(uint256) f, address addr1, uint256 returned1) internal {
+    function larpv(function (address) external view returns(uint256) f, address addr1, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1),
@@ -211,7 +211,7 @@ library mocking {
     }
 
     // address,address,uint256
-    function mock(function (address,address) external returns(uint256) f, address addr1, address addr2, uint256 returned1) internal {
+    function larp(function (address,address) external returns(uint256) f, address addr1, address addr2, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, addr2),
@@ -219,7 +219,7 @@ library mocking {
         );
     }
 
-    function mockp(function (address,address) external payable returns(uint256) f, address addr1, address addr2, uint256 returned1) internal {
+    function larpp(function (address,address) external payable returns(uint256) f, address addr1, address addr2, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, addr2),
@@ -227,7 +227,7 @@ library mocking {
         );
     }
 
-    function mockv(function (address,address) external view returns(uint256) f, address addr1, address addr2, uint256 returned1) internal {
+    function larpv(function (address,address) external view returns(uint256) f, address addr1, address addr2, uint256 returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, addr2),
@@ -236,7 +236,7 @@ library mocking {
     }
 
     // address,uint256,bool
-    function mock(function (address,uint256) external returns(bool) f, address addr1, uint256 num1, bool returned1) internal {
+    function larp(function (address,uint256) external returns(bool) f, address addr1, uint256 num1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1),
@@ -244,7 +244,7 @@ library mocking {
         );
     }
 
-    function mockp(function (address,uint256) external payable returns(bool) f, address addr1, uint256 num1, bool returned1) internal {
+    function larpp(function (address,uint256) external payable returns(bool) f, address addr1, uint256 num1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1),
@@ -252,7 +252,7 @@ library mocking {
         );
     }
 
-    function mockv(function (address,uint256) external view returns(bool) f, address addr1, uint256 num1, bool returned1) internal {
+    function larpv(function (address,uint256) external view returns(bool) f, address addr1, uint256 num1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1),
@@ -261,7 +261,7 @@ library mocking {
     }
 
     // address,address,uint256,bool
-    function mock(function (address,address,uint256) external returns(bool) f, address addr1, address addr2, uint256 num1, bool returned1) internal {
+    function larp(function (address,address,uint256) external returns(bool) f, address addr1, address addr2, uint256 num1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, addr2, num1),
@@ -269,7 +269,7 @@ library mocking {
         );
     }
 
-    function mockp(function (address,address,uint256) external payable returns(bool) f, address addr1, address addr2, uint256 num1, bool returned1) internal {
+    function larpp(function (address,address,uint256) external payable returns(bool) f, address addr1, address addr2, uint256 num1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, addr2, num1),
@@ -277,7 +277,7 @@ library mocking {
         );
     }
 
-    function mockv(function (address,address,uint256) external view returns(bool) f, address addr1, address addr2, uint256 num1, bool returned1) internal {
+    function larpv(function (address,address,uint256) external view returns(bool) f, address addr1, address addr2, uint256 num1, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, addr2, num1),
@@ -286,7 +286,7 @@ library mocking {
     }
     
     // address,uint256,uint256,bool
-    function mock(function (address,uint256,uint256) external returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
+    function larp(function (address,uint256,uint256) external returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1, num2),
@@ -294,7 +294,7 @@ library mocking {
         );
     }
 
-    function mockp(function (address,uint256,uint256) external payable returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
+    function larpp(function (address,uint256,uint256) external payable returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1, num2),
@@ -302,7 +302,7 @@ library mocking {
         );
     }
 
-    function mockv(function (address,uint256,uint256) external view returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
+    function larpv(function (address,uint256,uint256) external view returns(bool) f, address addr1, uint256 num1, uint256 num2, bool returned1) internal {
         vm.mockCall(
             f.address,
             abi.encodeWithSelector(f.selector, addr1, num1, num2),
