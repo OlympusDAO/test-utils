@@ -260,6 +260,31 @@ library larping {
         );
     }
 
+    // bytes3,address,bool
+    function larp(function (bytes3,address) external returns(bool) f, bytes3 byt31, address num1, bool returned1) internal {
+        vm.mockCall(
+            f.address,
+            abi.encodeWithSelector(f.selector, byt31, num1),
+            abi.encode(returned1)
+        );
+    }
+
+    function larpp(function (bytes3,address) external payable returns(bool) f, bytes3 byt31, address num1, bool returned1) internal {
+        vm.mockCall(
+            f.address,
+            abi.encodeWithSelector(f.selector, byt31, num1),
+            abi.encode(returned1)
+        );
+    }
+
+    function larpv(function (bytes3,address) external view returns(bool) f, bytes3 byt31, address num1, bool returned1) internal {
+        vm.mockCall(
+            f.address,
+            abi.encodeWithSelector(f.selector, byt31, num1),
+            abi.encode(returned1)
+        );
+    }
+
     // address,address,uint256,bool
     function larp(function (address,address,uint256) external returns(bool) f, address addr1, address addr2, uint256 num1, bool returned1) internal {
         vm.mockCall(
