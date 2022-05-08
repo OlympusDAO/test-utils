@@ -13,6 +13,11 @@ library errors {
 
     Vm private constant vm = Vm(HEVM_ADDRESS);
 
+    // no arg
+    function with(bytes4 errorSel) internal {
+        vm.expectRevert(abi.encodeWithSelector(errorSel));
+    }
+
     function with(bytes4 errorSel, address arg1) internal {
         vm.expectRevert(abi.encodeWithSelector(errorSel, arg1));
     }
