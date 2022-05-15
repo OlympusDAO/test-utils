@@ -4,7 +4,7 @@ pragma solidity >=0.8.0;
 import {Vm} from "forge-std/Vm.sol";
 
 //common utilities for forge tests
-contract users {
+contract Users {
     address internal constant HEVM_ADDRESS =
         address(bytes20(uint160(uint256(keccak256("hevm cheat code")))));
 
