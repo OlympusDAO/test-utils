@@ -136,8 +136,8 @@ library convert {
     }
 
     /// uint256,int32
-    function ci32(uint32 number) internal pure returns (int32) {
-        return int32(number);
+    function ci32(uint256 number) internal pure returns (int32) {
+        return int32(uint32(number));
     }
 
     function ci32shl(uint256 number, uint256 shift)
