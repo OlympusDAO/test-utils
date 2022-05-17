@@ -3,11 +3,14 @@ pragma solidity >=0.8.0;
 // convert library
 // naming key:
 // since <obj>.method works you know your orig type
-// then name defines type to convert to
-// and if same bit amount this is implicit
 // meaning you only have necessary data about what the function does
-// also: (uintx -> uinty) -> (uintx -> inty) -> (intx -> uinty) -> (intx -> inty)
+
+// (uintx -> uinty) -> (uintx -> inty) -> (intx -> uinty) -> (intx -> inty)
 // organized in that order, ascending based on arg first then return
+
+// uint256 is unspecified,
+// if not uint256, then it is specified before convert-to-type
+// and if bit amount is the same then it is again not specified
 library convert {
     /// uint224,uint256
     function c224u256(uint224 number) internal pure returns (uint256) {
@@ -51,11 +54,32 @@ library convert {
         return uint32(number >> shift);
     }
 
+    /// uint256,uint48
+    function cu48(uint256 number) internal pure returns (uint48) {
+        return uint48(number);
+    }
+
+    function cu48shl(uint256 number, uint256 shift)
+        internal
+        pure
+        returns (uint48)
+    {
+        return uint48(number << shift);
+    }
+
+    function cu48shr(uint256 number, uint256 shift)
+        internal
+        pure
+        returns (uint48)
+    {
+        return uint48(number >> shift);
+    }
+
+    /// uint256,uint128
     function cu128(uint256 number) internal pure returns (uint128) {
         return uint128(number);
     }
 
-    /// uint256,uint128
     function cu128shl(uint256 number, uint256 shift)
         internal
         pure
@@ -175,6 +199,80 @@ library convert {
         returns (int256)
     {
         return int256(number >> shift);
+    }
+
+    /// int32,uint32
+    function c32u(int32 number) internal pure returns (uint32) {
+        return uint32(number);
+    }
+
+    function c32ushlb(int32 number, uint256 shift)
+        internal
+        pure
+        returns (uint32)
+    {
+        return uint32(number) << uint32(shift);
+    }
+
+    function c32ushrb(int32 number, uint256 shift)
+        internal
+        pure
+        returns (uint32)
+    {
+        return uint32(number) >> shift;
+    }
+
+    function c32ushla(int32 number, uint256 shift)
+        internal
+        pure
+        returns (uint32)
+    {
+        return uint32(number << uint32(shift));
+    }
+
+    function c32ushra(int32 number, uint256 shift)
+        internal
+        pure
+        returns (uint32)
+    {
+        return uint32(number >> shift);
+    }
+
+    /// int32,uint256
+    function c32u256(int32 number) internal pure returns (uint256) {
+        return uint256(uint32(number));
+    }
+
+    function c32u256shlb(int32 number, uint256 shift)
+        internal
+        pure
+        returns (uint256)
+    {
+        return uint256(uint32(number)) << shift;
+    }
+
+    function c32u256shrb(int32 number, uint256 shift)
+        internal
+        pure
+        returns (uint256)
+    {
+        return uint256(uint32(number)) >> shift;
+    }
+
+    function c32u256shla(int32 number, uint256 shift)
+        internal
+        pure
+        returns (uint256)
+    {
+        return uint256(uint32(number) << uint32(shift));
+    }
+
+    function c32u256shra(int32 number, uint256 shift)
+        internal
+        pure
+        returns (uint256)
+    {
+        return uint256(uint32(number >> shift));
     }
 
     /// int256,uint256
