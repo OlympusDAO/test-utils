@@ -275,6 +275,27 @@ library convert {
         return uint256(uint32(number >> shift));
     }
 
+    /// int256,uint32
+    function ciu32(int256 number) internal pure returns (uint32) {
+        return uint32(uint256(number));
+    }
+
+    function ciu32shl(int256 number, uint32 shift)
+        internal
+        pure
+        returns (uint32)
+    {
+        return uint32(uint256(number << shift));
+    }
+
+    function ciu32shr(int256 number, uint32 shift)
+        internal
+        pure
+        returns (uint32)
+    {
+        return uint32(uint256(number >> shift));
+    }
+
     /// int256,uint224
     function ciu224(int256 number) internal pure returns (uint224) {
         return uint224(uint256(number));
