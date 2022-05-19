@@ -7,7 +7,7 @@ import "solmate/tokens/ERC20.sol";
 /// LOCAL
 import "src/larping.sol";
 import "src/coins.sol";
-import "src/users.sol";
+import "src/UserFactory.sol";
 
 contract PERC20 is ERC20 {
     constructor(
@@ -26,11 +26,11 @@ contract PERC20 is ERC20 {
 contract larpingTest is Test {
     using larping for *;
     PERC20 ohm;
-    users usr;
+    UserFactory usr;
 
     function setUp() public {
         ohm = PERC20(coins.ohm);
-        usr = new users();
+        usr = new UserFactory();
     }
 
     function testSimpleLarping() public {
