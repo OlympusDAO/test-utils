@@ -13,11 +13,11 @@ pragma solidity >=0.8.0;
 // and if bit amount is the same then it is again not specified
 library convert {
     /// uint224,uint256
-    function c224u256(uint224 number) internal pure returns (uint256) {
+    function c224uu(uint224 number) internal pure returns (uint256) {
         return uint256(number);
     }
 
-    function c224u256shl(uint224 number, uint256 shift)
+    function c224uushl(uint224 number, uint256 shift)
         internal
         pure
         returns (uint256)
@@ -25,7 +25,7 @@ library convert {
         return uint256(number) << shift;
     }
 
-    function c224u256shr(uint224 number, uint256 shift)
+    function c224uushr(uint224 number, uint256 shift)
         internal
         pure
         returns (uint256)
@@ -34,11 +34,11 @@ library convert {
     }
 
     /// uint256,uint32
-    function cu32(uint256 number) internal pure returns (uint32) {
+    function cu32u(uint256 number) internal pure returns (uint32) {
         return uint32(number);
     }
 
-    function cu32shl(uint256 number, uint256 shift)
+    function cu32ushl(uint256 number, uint256 shift)
         internal
         pure
         returns (uint32)
@@ -46,7 +46,7 @@ library convert {
         return uint32(number << shift);
     }
 
-    function cu32shr(uint256 number, uint256 shift)
+    function cu32ushr(uint256 number, uint256 shift)
         internal
         pure
         returns (uint32)
@@ -55,11 +55,11 @@ library convert {
     }
 
     /// uint256,uint48
-    function cu48(uint256 number) internal pure returns (uint48) {
+    function cu48u(uint256 number) internal pure returns (uint48) {
         return uint48(number);
     }
 
-    function cu48shl(uint256 number, uint256 shift)
+    function cu48ushl(uint256 number, uint256 shift)
         internal
         pure
         returns (uint48)
@@ -67,7 +67,7 @@ library convert {
         return uint48(number << shift);
     }
 
-    function cu48shr(uint256 number, uint256 shift)
+    function cu48ushr(uint256 number, uint256 shift)
         internal
         pure
         returns (uint48)
@@ -76,11 +76,11 @@ library convert {
     }
 
     /// uint256,uint128
-    function cu128(uint256 number) internal pure returns (uint128) {
+    function cu128u(uint256 number) internal pure returns (uint128) {
         return uint128(number);
     }
 
-    function cu128shl(uint256 number, uint256 shift)
+    function cu128ushl(uint256 number, uint256 shift)
         internal
         pure
         returns (uint128)
@@ -88,7 +88,7 @@ library convert {
         return uint128(number << shift);
     }
 
-    function cu128shr(uint256 number, uint256 shift)
+    function cu128ushr(uint256 number, uint256 shift)
         internal
         pure
         returns (uint128)
@@ -97,11 +97,11 @@ library convert {
     }
 
     /// uint256,uint224
-    function cu224(uint256 number) internal pure returns (uint224) {
+    function cu224u(uint256 number) internal pure returns (uint224) {
         return uint224(number);
     }
 
-    function cu224shl(uint256 number, uint256 shift)
+    function cu224ushl(uint256 number, uint256 shift)
         internal
         pure
         returns (uint224)
@@ -109,7 +109,7 @@ library convert {
         return uint224(number << shift);
     }
 
-    function cu224shr(uint256 number, uint256 shift)
+    function cu224ushr(uint256 number, uint256 shift)
         internal
         pure
         returns (uint224)
@@ -118,11 +118,11 @@ library convert {
     }
 
     /// uint32,int32
-    function c32i(uint32 number) internal pure returns (int32) {
+    function c32u32i(uint32 number) internal pure returns (int32) {
         return int32(number);
     }
 
-    function c32ishl(uint32 number, uint256 shift)
+    function c32u32ishl(uint32 number, uint256 shift)
         internal
         pure
         returns (int32)
@@ -130,7 +130,7 @@ library convert {
         return int32(number << uint32(shift));
     }
 
-    function c32ishr(uint32 number, uint256 shift)
+    function c32u32ishr(uint32 number, uint256 shift)
         internal
         pure
         returns (int32)
@@ -139,11 +139,11 @@ library convert {
     }
 
     /// uint224,int224
-    function c224i(uint224 number) internal pure returns (int224) {
+    function c224u224i(uint224 number) internal pure returns (int224) {
         return int224(number);
     }
 
-    function c224ishl(uint224 number, uint256 shift)
+    function c224u224ishl(uint224 number, uint256 shift)
         internal
         pure
         returns (int224)
@@ -151,7 +151,7 @@ library convert {
         return int224(number << uint224(shift));
     }
 
-    function c224ishr(uint224 number, uint256 shift)
+    function c224u224ishr(uint224 number, uint256 shift)
         internal
         pure
         returns (int224)
@@ -160,11 +160,11 @@ library convert {
     }
 
     /// uint256,int32
-    function c32i(uint256 number) internal pure returns (int32) {
+    function cu32i(uint256 number) internal pure returns (int32) {
         return int32(uint32(number));
     }
 
-    function c32ishl(uint256 number, uint256 shift)
+    function cu32ishl(uint256 number, uint256 shift)
         internal
         pure
         returns (int32)
@@ -172,7 +172,7 @@ library convert {
         return int32(uint32(number << shift));
     }
 
-    function c32ishr(uint256 number, uint256 shift)
+    function cu32ishr(uint256 number, uint256 shift)
         internal
         pure
         returns (int32)
@@ -181,11 +181,11 @@ library convert {
     }
 
     /// uint256,int256
-    function ci(uint256 number) internal pure returns (int256) {
+    function cui(uint256 number) internal pure returns (int256) {
         return int256(number);
     }
 
-    function cishl(uint256 number, uint256 shift)
+    function cuishl(uint256 number, uint256 shift)
         internal
         pure
         returns (int256)
@@ -193,7 +193,7 @@ library convert {
         return int256(number << shift);
     }
 
-    function cishr(uint256 number, uint256 shift)
+    function cuishr(uint256 number, uint256 shift)
         internal
         pure
         returns (int256)
@@ -202,11 +202,11 @@ library convert {
     }
 
     /// int32,uint32
-    function ci32u(int32 number) internal pure returns (uint32) {
+    function c32i32u(int32 number) internal pure returns (uint32) {
         return uint32(number);
     }
 
-    function ci32ushlb(int32 number, uint256 shift)
+    function c32i32ushlb(int32 number, uint256 shift)
         internal
         pure
         returns (uint32)
@@ -214,7 +214,7 @@ library convert {
         return uint32(number) << uint32(shift);
     }
 
-    function ci32ushrb(int32 number, uint256 shift)
+    function c32i32ushrb(int32 number, uint256 shift)
         internal
         pure
         returns (uint32)
@@ -222,7 +222,7 @@ library convert {
         return uint32(number) >> shift;
     }
 
-    function ci32ushla(int32 number, uint256 shift)
+    function c32i32ushla(int32 number, uint256 shift)
         internal
         pure
         returns (uint32)
@@ -230,7 +230,7 @@ library convert {
         return uint32(number << uint32(shift));
     }
 
-    function ci32ushra(int32 number, uint256 shift)
+    function c32i32ushra(int32 number, uint256 shift)
         internal
         pure
         returns (uint32)
@@ -276,11 +276,11 @@ library convert {
     }
 
     /// int256,uint224
-    function c224u(int256 number) internal pure returns (uint224) {
+    function ciu224(int256 number) internal pure returns (uint224) {
         return uint224(uint256(number));
     }
 
-    function c224ushl(int256 number, uint224 shift)
+    function ciu224shl(int256 number, uint224 shift)
         internal
         pure
         returns (uint224)
@@ -288,7 +288,7 @@ library convert {
         return uint224(uint256(number << shift));
     }
 
-    function c224ushr(int256 number, uint224 shift)
+    function ciu224shr(int256 number, uint224 shift)
         internal
         pure
         returns (uint224)
@@ -297,11 +297,11 @@ library convert {
     }
 
     /// int256,uint256
-    function cu(int256 number) internal pure returns (uint256) {
+    function ciu(int256 number) internal pure returns (uint256) {
         return uint256(number);
     }
 
-    function cushlb(int256 number, uint256 shift)
+    function ciushlb(int256 number, uint256 shift)
         internal
         pure
         returns (uint256)
@@ -309,7 +309,7 @@ library convert {
         return uint256(number) << shift;
     }
 
-    function cushrb(int256 number, uint256 shift)
+    function ciushrb(int256 number, uint256 shift)
         internal
         pure
         returns (uint256)
@@ -317,7 +317,7 @@ library convert {
         return uint256(number) >> shift;
     }
 
-    function cushla(int256 number, uint256 shift)
+    function ciushla(int256 number, uint256 shift)
         internal
         pure
         returns (uint256)
@@ -325,7 +325,7 @@ library convert {
         return uint256(number << shift);
     }
 
-    function cushra(int256 number, uint256 shift)
+    function ciushra(int256 number, uint256 shift)
         internal
         pure
         returns (uint256)
