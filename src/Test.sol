@@ -23,7 +23,7 @@ contract Easy is Permutations, Test {
     using sorting for *;
 
     UserFactory usrfac;
-    
+
     constructor() {
         usrfac = new UserFactory();
     }
