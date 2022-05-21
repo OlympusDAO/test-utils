@@ -160,11 +160,11 @@ library convert {
     }
 
     /// uint256,int32
-    function cui32(uint256 number) internal pure returns (int32) {
+    function cu32i(uint256 number) internal pure returns (int32) {
         return int32(uint32(number));
     }
 
-    function cui32shl(uint256 number, uint256 shift)
+    function cu32ishl(uint256 number, uint256 shift)
         internal
         pure
         returns (int32)
@@ -172,7 +172,7 @@ library convert {
         return int32(uint32(number << shift));
     }
 
-    function cui32shr(uint256 number, uint256 shift)
+    function cu32ishr(uint256 number, uint256 shift)
         internal
         pure
         returns (int32)
