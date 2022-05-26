@@ -15,6 +15,7 @@ library coins {
     address public constant frax = 0x853d955aCEf822Db058eb8505911ED77F175b99e;
     address public constant lusd = 0x5f98805A4E8be255a32880FDeC7F6728C6568bA0;
     address public constant agEUR = 0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8;
+    address public constant fei = 0x956F47F50A910163D8BF957Cf5846D573E7f87CA;
 
     // ANY TOKENS
     address public constant cvx = 0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B;
@@ -29,6 +30,7 @@ library coins {
     address public constant toke = 0x2e9d63788249371f1DFC918a52f8d799F4a38C94;
     address public constant tribe = 0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B;
     address public constant cvxcrv = 0x62B9c7356A2Dc64a1969e19C23e4f579F9810Aa7;
+    address public constant sushi = 0x6B3595068778DD592e39A122f4f5a5cF09C90fE2;
 
     // AAVE
     address public constant adai = 0x028171bCA77440897B824Ca71D1c56caC55b68A3;
