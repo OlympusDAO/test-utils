@@ -75,6 +75,27 @@ library convert {
         return uint48(number >> shift);
     }
 
+    /// uint256,uint64
+    function cu64u(uint256 number) internal pure returns (uint64) {
+        return uint64(number);
+    }
+
+    function cu64ushl(uint256 number, uint256 shift)
+        internal
+        pure
+        returns (uint64)
+    {
+        return uint64(number << shift);
+    }
+
+    function cu64ushr(uint256 number, uint256 shift)
+        internal
+        pure
+        returns (uint64)
+    {
+        return uint64(number >> shift);
+    }
+
     /// uint256,uint128
     function cu128u(uint256 number) internal pure returns (uint128) {
         return uint128(number);
@@ -178,6 +199,27 @@ library convert {
         returns (int32)
     {
         return int32(uint32(number >> shift));
+    }
+
+    /// uint256,int128
+    function cu128i(uint256 number) internal pure returns (int128) {
+        return int128(uint128(number));
+    }
+
+    function cu128ishl(uint256 number, uint256 shift)
+        internal
+        pure
+        returns (int128)
+    {
+        return int128(uint128(number << shift));
+    }
+
+    function cu128ishr(uint256 number, uint256 shift)
+        internal
+        pure
+        returns (int128)
+    {
+        return int128(uint128(number >> shift));
     }
 
     /// uint256,int256
