@@ -338,6 +338,27 @@ library convert {
         return uint32(uint256(number >> shift));
     }
 
+    /// int256,uint128
+    function ci128u(int256 number) internal pure returns (uint128) {
+        return uint128(uint256(number));
+    }
+
+    function ci128ushl(int256 number, uint128 shift)
+        internal
+        pure
+        returns (uint128)
+    {
+        return uint128(uint256(number << shift));
+    }
+
+    function ci128ushr(int256 number, uint128 shift)
+        internal
+        pure
+        returns (uint128)
+    {
+        return uint128(uint256(number >> shift));
+    }
+
     /// int256,uint224
     function ci224u(int256 number) internal pure returns (uint224) {
         return uint224(uint256(number));
