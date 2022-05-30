@@ -395,4 +395,46 @@ library convert {
     {
         return uint256(number >> shift);
     }
+
+    /// int128,int256
+    function c128ii(int128 number) internal pure returns (int256) {
+        return int256(number);
+    }
+
+    function c128iishl(int128 number, uint256 shift)
+        internal
+        pure
+        returns (int256)
+    {
+        return int256(number) << shift;
+    }
+
+    function c128iishr(int128 number, uint256 shift)
+        internal
+        pure
+        returns (int256)
+    {
+        return int256(number) >> shift;
+    }
+
+    /// int256,int128
+    function cii128(int256 number) internal pure returns (int128) {
+        return int128(number);
+    }
+
+    function cii128shl(int256 number, uint256 shift)
+        internal
+        pure
+        returns (int128)
+    {
+        return int128(number << shift);
+    }
+
+    function cii128shr(int256 number, uint256 shift)
+        internal
+        pure
+        returns (int128)
+    {
+        return int128(number >> shift);
+    }
 }
