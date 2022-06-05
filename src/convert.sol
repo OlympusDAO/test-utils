@@ -9,6 +9,27 @@ pragma solidity >=0.8.0;
 // (uintx -> uinty) -> (uintx -> inty) -> (intx -> uinty) -> (intx -> inty)
 // organized in that order, ascending based on arg first then return
 library convert {
+    /// uint64,uint128
+    function c64u128u(uint64 number) internal pure returns (uint128) {
+        return uint128(number);
+    }
+
+    function c64u128ushl(uint64 number, uint256 shift)
+        internal
+        pure
+        returns (uint128)
+    {
+        return uint128(number) << uint128(shift);
+    }
+
+    function c64u128ushr(uint64 number, uint256 shift)
+        internal
+        pure
+        returns (uint128)
+    {
+        return uint128(number) >> shift;
+    }
+
     /// uint224,uint256
     function c224uu(uint224 number) internal pure returns (uint256) {
         return uint256(number);

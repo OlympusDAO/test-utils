@@ -23,7 +23,7 @@ contract Permutations {
     ) internal returns (uint256[] memory result) {
         permuted = input;
         heaps(input.length, permuted); // permute
-        result = permutations[i]; // return ith permutation
+        result = permutations[i]; // return i - 1th permutation
         if (del) delete permutations; // clean
         delete permuted;
     }
