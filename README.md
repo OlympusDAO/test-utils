@@ -1,5 +1,7 @@
 # Forge test-utils
 
+For all of below except the user factory you will need to add your own types if they are not provided. Feel free to PR them.
+
 ## Showcase of most important
 
 ### larping
